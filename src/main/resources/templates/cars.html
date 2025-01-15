@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Заявки на запись автомобилей</title>
+</head>
+<body>
+<!-- Ваше содержимое -->
+<div class="container mt-5">
+    <h1 class="mb-4">Заявки на запись автомобилей</h1>
+    <table class="table table-stripped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Номер</th>
+            <th scope="col">Госномер</th>
+            <th scope="col">Компания</th>
+            <th scope="col">ИНН</th>
+            <th scope="col">Место</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Комментарий</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.id}">ID</td>
+            <td th:text="${car.number}">Number</td>
+            <td th:text="${car.gosnomer}">Gosnomer</td>
+            <td th:text="${car.company}">Company</td>
+            <td th:text="${car.inn}">INN</td>
+            <td th:text="${car.place}">Place</td>
+            <td th:text="${car.name}">Name</td>
+            <td th:text="${car.comment}">Comment</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqzlaeEeBLUewuVSsYMbHQgFDVe5ZdJuHftezBf+XPPKrylHO+CklxUAV/" crossorigin="anonymous"></script>
+</body>
+</html>
