@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 public class CarsController {
 
-    @GetMapping("/cars")
+    @GetMapping("/car")
     public String showCars(Model model) throws SQLException {
         PostgresConnect dbService = new PostgresConnect();
         List<Car> cars = dbService.getCars();
