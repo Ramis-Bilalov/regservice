@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +15,7 @@ public class ServiceDataController {
 
     @Autowired
     private ServiceDataRepository serviceDataRepository;
+    private Long idSave;
 
     @GetMapping("/list_free")
     public String listRecordsForAll(Model model) {
@@ -29,8 +27,18 @@ public class ServiceDataController {
     @GetMapping("/form")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String showForm(Model model) {
-        model.addAttribute("serviceData", new ServiceData());
+        ServiceData serviceData = new ServiceData();
+        serviceData.setStatus("ЗАЯВКА");
+        model.addAttribute("serviceData", serviceData);
         return "form";
+    }
+
+    @GetMapping("/form/{id}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public String editForm(@PathVariable Long id, Model model) {
+        ServiceData serviceData = serviceDataRepository.findById(id).orElse(null);
+        model.addAttribute("serviceData", serviceData);
+        return "edit-form";
     }
 
     @PostMapping("/processForm")
@@ -51,6 +59,15 @@ public class ServiceDataController {
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String deleteRecord(@PathVariable Long id) {
         serviceDataRepository.deleteById(id);
+        return "redirect:/cars/list";
+    }
+
+    @PostMapping("/update/{id}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public String updateServiceData(@PathVariable Long id, Model model, ServiceData serviceDataM) {
+        ServiceData serviceData = serviceDataRepository.findById(id).orElse(null);
+        serviceDataRepository.save(serviceDataM);
+        model.addAttribute("serviceData", serviceData);
         return "redirect:/cars/list";
     }
 }

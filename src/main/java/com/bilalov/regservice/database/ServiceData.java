@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 @Entity
 public class ServiceData {
 
@@ -12,6 +11,7 @@ public class ServiceData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String status;
     private String number;
     private String gosnomer;
     private String company;
@@ -20,12 +20,15 @@ public class ServiceData {
     private String name;
     private String comment;
 
+    private String localDate;
+
     // Конструкторы, геттеры и сеттеры
 
     public ServiceData() {}
 
-    public ServiceData(String number, String gosnomer, String company,
-                       String inn, String place, String name, String comment) {
+    public ServiceData(String status, String number, String gosnomer, String company,
+                       String inn, String place, String name, String comment, String localDate) {
+        this.status = status;
         this.number = number;
         this.gosnomer = gosnomer;
         this.company = company;
@@ -33,6 +36,7 @@ public class ServiceData {
         this.place = place;
         this.name = name;
         this.comment = comment;
+        this.localDate = localDate;
     }
 
     // Геттеры и сеттеры
@@ -99,5 +103,21 @@ public class ServiceData {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String STATUS) {
+        this.status = STATUS;
+    }
+
+    public String getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(String localDate) {
+        this.localDate = localDate;
     }
 }
