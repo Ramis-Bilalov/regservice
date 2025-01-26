@@ -20,14 +20,16 @@ public class ServiceData {
     private String name;
     private String comment;
 
-    private String localDate;
+    private String date;
+
+    private String time;
 
     // Конструкторы, геттеры и сеттеры
 
     public ServiceData() {}
 
     public ServiceData(String status, String number, String gosnomer, String company,
-                       String inn, String place, String name, String comment, String localDate) {
+                       String inn, String place, String name, String comment, String localDate, String date, String time) {
         this.status = status;
         this.number = number;
         this.gosnomer = gosnomer;
@@ -36,7 +38,8 @@ public class ServiceData {
         this.place = place;
         this.name = name;
         this.comment = comment;
-        this.localDate = localDate;
+        this.date = date;
+        this.time = time;
     }
 
     // Геттеры и сеттеры
@@ -113,11 +116,19 @@ public class ServiceData {
         this.status = STATUS;
     }
 
-    public String getLocalDate() {
-        return localDate;
+    public String getDate() {
+        return date;
     }
 
-    public void setLocalDate(String localDate) {
-        this.localDate = localDate;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

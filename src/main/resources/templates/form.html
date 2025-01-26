@@ -10,41 +10,42 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h1 class="mb-4 text-center">Форма ввода данных</h1>
+            <h2 class="mb-4 text-center">Форма ввода данных</h2>
             <form action="#" th:action="@{/cars/processForm}" th:object="${serviceData}" method="post">
-                <div class="mb-3">
+                <div class="mb-1">
                     <label for="status" class="form-label">СТАТУС:</label>
                     <input type="text" class="form-select-sm" id="status" th:field="*{status}" th:value="${serviceData.status}" readonly/>
                 </div>
-                <div class="mb-3">
+                <div class="mb-1">
                     <label for="phoneNumber" class="form-label">Телефонный номер:</label>
                     <input type="tel" class="form-control" id="phoneNumber" th:field="*{number}" required/>
                 </div>
-                <div class="mb-3">
+                <div class="mb-1">
                     <label for="stateRegistrationNumber" class="form-label">Госномер:</label>
                     <input type="text" class="form-control" id="stateRegistrationNumber" th:field="*{gosnomer}" required/>
                 </div>
-                <div class="mb-3">
+                <div class="mb-1">
                     <label for="companyName" class="form-label">Название компании:</label>
                     <input type="text" class="form-control" id="companyName" th:field="*{company}" required/>
                 </div>
-                <div class="mb-3">
+                <div class="mb-1">
                     <label for="inn" class="form-label">ИНН:</label>
                     <input type="text" class="form-control" id="inn" th:field="*{inn}" required/>
                 </div>
-                <div class="mb-3">
+                <div class="mb-1">
                     <label for="serviceLocation" class="form-label">Местоположение сервиса:</label>
                     <input type="text" class="form-control" id="serviceLocation" th:field="*{place}" required/>
                 </div>
-                <div class="mb-3">
+                <div class="mb-1">
                     <label for="contactPerson" class="form-label">Контактное лицо:</label>
                     <input type="text" class="form-control" id="contactPerson" th:field="*{name}" required/>
                 </div>
-                <div class="mb-3">
+                <div class="mb-1">
                     <label for="comment" class="form-label">Комментарий:</label>
                     <textarea class="form-control" id="comment" rows="5" th:field="*{comment}"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Отправить</button>
+                <button type="submit" class="btn btn-primary w-50">Отправить</button>
+                <a href="/cars/list" class="btn btn-danger active w-40" role="button" aria-pressed="true">Закрыть</a>
             </form>
         </div>
     </div>

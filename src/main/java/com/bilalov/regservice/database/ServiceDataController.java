@@ -66,6 +66,7 @@ public class ServiceDataController {
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String updateServiceData(@PathVariable Long id, Model model, ServiceData serviceDataM) {
         ServiceData serviceData = serviceDataRepository.findById(id).orElse(null);
+        serviceDataM.setStatus("В ЗАПИСИ");
         serviceDataRepository.save(serviceDataM);
         model.addAttribute("serviceData", serviceData);
         return "redirect:/cars/list";
