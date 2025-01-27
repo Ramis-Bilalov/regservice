@@ -1,4 +1,4 @@
-package com.bilalov.regservice.database;
+package com.bilalov.regservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

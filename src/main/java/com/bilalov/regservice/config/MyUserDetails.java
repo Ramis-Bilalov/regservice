@@ -1,5 +1,6 @@
-package com.bilalov.regservice.database;
+package com.bilalov.regservice.config;
 
+import com.bilalov.regservice.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,11 +1,12 @@
-package com.bilalov.regservice.database;
+package com.bilalov.regservice.controller;
 
+import com.bilalov.regservice.entity.ServiceData;
+import com.bilalov.regservice.repositories.ServiceDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 
@@ -33,6 +34,14 @@ public class ServiceDataController {
         return "form";
     }
 
+    @GetMapping("/delete-form/{id}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public String deleteForm(@PathVariable Long id, Model model) {
+        ServiceData serviceData = serviceDataRepository.findById(id).orElse(null);
+        model.addAttribute("serviceData", serviceData);
+        return "deleteform";
+    }
+
     @GetMapping("/form/{id}")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String editForm(@PathVariable Long id, Model model) {
@@ -55,7 +64,7 @@ public class ServiceDataController {
         return "list";
     }
 
-    @GetMapping("/delete/{id}")
+    @PostMapping("/delete/{id}")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String deleteRecord(@PathVariable Long id) {
         serviceDataRepository.deleteById(id);

@@ -1,4 +1,4 @@
-package com.bilalov.regservice.database;
+package com.bilalov.regservice.entity;
 
 import jakarta.persistence.*;
 
