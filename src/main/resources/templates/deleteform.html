@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h2 class="mb-4 text-center btn-outline-dark bg-danger">Удаление записи</h2>
-            <form action="#" th:action="@{'/cars/delete/' + ${serviceData.id}}" th:object="${serviceData}" method="post">
+            <form action="#" th:action="@{'/cars/deleteProcess/' + ${serviceData.id}}" th:object="${serviceData}" method="post">
                 <div class="mb-1">
                     <label for="date" class="form-label">Дата заезда:</label>
                     <input type="date" class="form-select-sm border-light bg-warning-subtle" id="date" th:field="*{date}" th:value="${serviceData.date}" readonly/>

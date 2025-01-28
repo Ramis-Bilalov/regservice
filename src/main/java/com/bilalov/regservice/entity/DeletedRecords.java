@@ -4,9 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-@Entity
-public class ServiceData {
 
+@Entity
+public class DeletedRecords {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,9 +26,9 @@ public class ServiceData {
 
     // Конструкторы, геттеры и сеттеры
 
-    public ServiceData() {}
+    public DeletedRecords() {}
 
-    public ServiceData(String status, String number, String gosnomer, String company,
+    public DeletedRecords(String status, String number, String gosnomer, String company,
                        String inn, String place, String name, String comment, String date, String time) {
         this.status = status;
         this.number = number;
