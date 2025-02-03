@@ -53,6 +53,16 @@ public class ServiceDataController {
         return "deleteform";
     }
 
+    @GetMapping("/restore/{id}")                                        //форма для подтверждения удаления записи
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public String restoreRecord(@PathVariable Long id, Model model) {
+        DeletedRecords deletedRecords = deletedRecordsRepository.findById(id).orElse(null);
+        model.addAttribute("deletedRecords", deletedRecords);
+        return "restore-deleted-form";
+    }
+
+
+
     @PostMapping("/processForm")                                            //запись первичной формы
     public String processForm(ServiceData serviceData) {
         serviceDataRepository.save(serviceData);
@@ -67,6 +77,16 @@ public class ServiceDataController {
         deletedRecordsRepository.save(deletedRecords);
         serviceDataRepository.deleteById(id);
         return "redirect:/cars/list"; // Перенаправляем на список после сохранения
+    }
+
+    @PostMapping("/restoreProcess/{id}")                                     //восстановление записи (удаление из таблицы удаленных записей и добавление в таблицу записи
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public String restoreProcess(@PathVariable Long id) {
+        DeletedRecords deletedRecords = deletedRecordsRepository.findById(id).orElse(null);
+        ServiceData serviceData = new ServiceData(deletedRecords.getStatus(), deletedRecords.getNumber(), deletedRecords.getGosnomer(), deletedRecords.getCompany(), deletedRecords.getInn(), deletedRecords.getPlace(), deletedRecords.getName(), deletedRecords.getComment(), deletedRecords.getDate(), deletedRecords.getTime());
+        serviceDataRepository.save(serviceData);
+        deletedRecordsRepository.deleteById(id);
+        return "redirect:/cars/deleted-list"; // Перенаправляем на список после сохранения
     }
 
     @GetMapping("/list")                                                    //просмотр таблицы записи
@@ -107,5 +127,21 @@ public class ServiceDataController {
         serviceDataRepository.save(serviceDataM);
         model.addAttribute("serviceData", serviceData);
         return "redirect:/cars/list";
+    }
+
+
+    @GetMapping("/total-delete/{id}")                                        //форма для подтверждения удаления записи
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public String totalDeleteForm(@PathVariable Long id, Model model) {
+        DeletedRecords deletedRecords = deletedRecordsRepository.findById(id).orElse(null);
+        model.addAttribute("deletedRecords", deletedRecords);
+        return "totaldeleteform";
+    }
+
+    @PostMapping("/destroy/{id}")                                            //удаление записи - уже не используется
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public String totalDelete(@PathVariable Long id) {
+        deletedRecordsRepository.deleteById(id);
+        return "redirect:/cars/deleted-list";
     }
 }

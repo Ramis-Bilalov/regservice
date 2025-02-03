@@ -2,7 +2,7 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Список записей</title>
+    <title>Удаленные записи автомобилей</title>
     <!-- Подключение Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -42,7 +42,8 @@
                     <td th:text="${record.date}"></td>
                     <td th:text="${record.time}"></td>
                     <td>
-                        <a th:href="@{'/cars/deleted/' + ${record.id}}" class="btn btn-outline-danger btn-sm">❌</a>
+                        <a th:href="@{'/cars/total-delete/' + ${record.id}}" class="btn btn-outline-danger btn-sm">Удалить безвозвратно</a>
+                        <a th:href="@{'/cars/restore/' + ${record.id}}" class="btn btn-outline-success btn-sm">Восстановить</a>
                     </td>
                 </tr>
                 </tbody>
