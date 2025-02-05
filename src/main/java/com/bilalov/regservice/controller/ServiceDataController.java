@@ -91,7 +91,7 @@ public class ServiceDataController {
 
     @GetMapping("/list")                                                    //просмотр таблицы записи
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public String listRecords(Model model) {
+    public String listRecords(Model model, ServiceData serviceData) {
         List<ServiceData> records = serviceDataRepository.findAll();
         model.addAttribute("records", records);
         return "list";

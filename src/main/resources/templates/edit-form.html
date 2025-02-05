@@ -22,35 +22,35 @@
                 </div>
                 <div class="mb-1">
                     <label for="status" class="form-label">Статус:</label>
-                    <input type="tel" class="form-select-sm border-light bg-warning-subtle" id="status" th:field="*{status}" th:value="${serviceData.status}" readonly/>
+                    <input type="tel" class="form-select-sm border-light bg-warning-subtle" id="status" th:field="*{status}" th:value="${serviceData.status}" />
                 </div>
                 <div class="mb-1">
                     <label for="phoneNumber" class="form-label">Телефонный номер:</label>
-                    <input type="tel" class="form-control" id="phoneNumber" th:field="*{number}" th:value="${serviceData.number}" readonly/>
+                    <input type="tel" class="form-control" id="phoneNumber" th:field="*{number}" th:value="${serviceData.number}" />
                 </div>
                 <div class="mb-1">
                     <label for="stateRegistrationNumber" class="form-label">Госномер:</label>
-                    <input type="text" class="form-control" id="stateRegistrationNumber" th:field="*{gosnomer}" th:value="${serviceData.gosnomer}" readonly/>
+                    <input type="text" class="form-control" id="stateRegistrationNumber" th:field="*{gosnomer}" th:value="${serviceData.gosnomer}" />
                 </div>
                 <div class="mb-1">
                     <label for="companyName" class="form-label">Название компании:</label>
-                    <input type="text" class="form-control" id="companyName" th:field="*{company}" th:value="${serviceData.company}" readonly/>
+                    <input type="text" class="form-control" id="companyName" th:field="*{company}" th:value="${serviceData.company}" />
                 </div>
                 <div class="mb-1">
                     <label for="inn" class="form-label">ИНН:</label>
-                    <input type="text" class="form-control" id="inn" th:field="*{inn}" readonly/>
+                    <input type="text" class="form-control" id="inn" th:field="*{inn}" />
                 </div>
                 <div class="mb-1">
                     <label for="serviceLocation" class="form-label">Местоположение сервиса:</label>
-                    <input type="text" class="form-control" id="serviceLocation" th:field="*{place}" th:value="${serviceData.place}" readonly/>
+                    <input type="text" class="form-control" id="serviceLocation" th:field="*{place}" th:value="${serviceData.place}" />
                 </div>
                 <div class="mb-1">
                     <label for="contactPerson" class="form-label">Контактное лицо:</label>
-                    <input type="text" class="form-control" id="contactPerson" th:field="*{name}" th:value="${serviceData.name}" readonly/>
+                    <input type="text" class="form-control" id="contactPerson" th:field="*{name}" th:value="${serviceData.name}" />
                 </div>
                 <div class="mb-1">
                     <label for="comment" class="form-label">Комментарий:</label>
-                    <textarea class="form-control" id="comment" rows="5" th:field="*{comment}" th:value="${serviceData.comment}" readonly></textarea>
+                    <textarea class="form-control" id="comment" rows="5" th:field="*{comment}" th:value="${serviceData.comment}" ></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary w-50">Обновить</button>
                 <a href="/cars/list" class="btn btn-danger active w-40" role="button" aria-pressed="true">Закрыть</a>

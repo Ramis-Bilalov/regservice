@@ -12,10 +12,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String login;
+    private String password;
     private String username;
 
-    private String password;
+    private String surname;
 
+    private String position;
+
+    private String phoneNumber;
+
+    private String comment;
     private String role;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -24,20 +31,12 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    public Long getId() {
-        return id;
+    public String getLogin() {
+        return login;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {
@@ -48,12 +47,28 @@ public class User {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public String getUsername() {
+        return username;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public String getRole() {
@@ -62,5 +77,29 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

@@ -36,7 +36,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer :: disable)
-                .authorizeHttpRequests(auth -> auth.requestMatchers("cars/list_free").permitAll()
+                .authorizeHttpRequests(auth -> auth.requestMatchers("register/**").permitAll()
                         .requestMatchers("cars/**").authenticated())
                 .formLogin(AbstractAuthenticationFilterConfigurer :: permitAll)
                 .build();

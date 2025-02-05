@@ -15,7 +15,7 @@ public class RegServiceApplication {
 
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(5);
 		String hashedAdmin = passwordEncoder.encode("admin");
-		String hashedPassword = passwordEncoder.encode("12345");
+		String hashedPassword = passwordEncoder.encode("111");
 		System.out.println(hashedPassword);
 	}
 

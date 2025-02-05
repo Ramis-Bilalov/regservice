@@ -8,9 +8,10 @@
 </head>
 <body>
 <div class="container mt-5">
+    <a href="/cars/list" class="btn btn-outline-dark">Реестр записи автомобилей</a>
     <div class="row justify-content-center">
         <div class="col-md-14">
-            <h1 class="mb-4 text-center bg-black link-danger">Реестр удаленных записей автомобилей</h1>
+            <h1 class="mb-4 text-center link-danger text-black">Реестр удаленных записей автомобилей</h1>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -42,8 +43,8 @@
                     <td th:text="${record.date}"></td>
                     <td th:text="${record.time}"></td>
                     <td>
-                        <a th:href="@{'/cars/total-delete/' + ${record.id}}" class="btn btn-outline-danger btn-sm">Удалить безвозвратно</a>
-                        <a th:href="@{'/cars/restore/' + ${record.id}}" class="btn btn-outline-success btn-sm">Восстановить</a>
+                        <a th:href="@{'/cars/total-delete/' + ${record.id}}" class="btn btn-outline-danger active btn-sm">Удалить</a>
+                        <a th:href="@{'/cars/restore/' + ${record.id}}" class="btn btn-outline-success active btn-sm">Восстановить</a>
                     </td>
                 </tr>
                 </tbody>

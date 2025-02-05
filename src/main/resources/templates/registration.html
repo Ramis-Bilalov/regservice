@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация клиента</title>
+    <!-- Подключение Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4 text-center">Регистрация клиента</h2>
+            <form action="#" th:action="@{/register/process}" th:object="${user}" method="post">
+                <div class="mb-1">
+                    <label for="role" class="form-label">Роль:</label>
+                    <input type="text" class="form-select-sm" id="role" th:field="*{role}" th:value="${user.role}" readonly/>
+                </div>
+                <div class="mb-1">
+                    <label for="login" class="form-label">Логин на английском:</label>
+                    <input type="text" class="form-control border-dark bg-warning-subtle" id="login" th:field="*{login}" required/>
+                </div>
+                <div class="mb-1">
+                    <label for="password" class="form-label">Пароль на английском:</label>
+                    <input type="password" class="form-control border-dark bg-warning-subtle" id="password" th:field="*{password}" required/>
+                </div>
+                <div class="mb-1">
+                    <label for="username" class="form-label">Имя:</label>
+                    <input type="text" class="form-control border-dark" id="username" th:field="*{username}" required/>
+                </div>
+                <div class="mb-1">
+                    <label for="surname" class="form-label">Фамилия:</label>
+                    <input type="text" class="form-control border-dark" id="surname" th:field="*{surname}" required/>
+                </div>
+                <div class="mb-1">
+                    <label for="position" class="form-label">Должность:</label>
+                    <input type="text" class="form-control border-dark" id="position" th:field="*{position}" required/>
+                </div>
+                <div class="mb-1">
+                    <label for="phoneNumber" class="form-label">Номер телефона:</label>
+                    <input type="tel" class="form-control border-dark" id="phoneNumber" th:field="*{phoneNumber}" required/>
+                </div>
+                <div class="mb-1">
+                    <label for="comment" class="form-label">Комментарий:</label>
+                    <textarea class="form-control border-dark" id="comment" rows="5" th:field="*{comment}"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-50">Отправить</button>
+                <a href="/cars/list" class="btn btn-danger active w-40" role="button" aria-pressed="true">Закрыть</a>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Подключение скриптов Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz2OgprpeXtGK40WnxpXmADsHahoFretNkO+ecLbkf/EVHKxheLiKxYu9v3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KvEb48eC+A12HmWykd9F7QsAuhgRFzRcEKBMJ5qMNdagaY" crossorigin="anonymous"></script>
+</body>
+</html>
